@@ -67,7 +67,7 @@
 
             ...mapMutations('products', ['setParams']),
 
-            handleSort (sortKey) {
+            handleSort (sortKey, updateList = true) {
                 let currentOrder = this.params['order']
                 let currentKey = this.params['sortBy']
                 let newOrder = 'asc'
@@ -81,11 +81,13 @@
                 this.setParams({ key: 'sortBy', value: sortKey })
                 this.setParams({ key: 'order', value: newOrder })
 
-                this.isFetchingData = true
-                this.getProductsRequest()
-                    .finally(() => {
-                        this.isFetchingData = false
-                    })
+                if (updateList) {
+                    this.isFetchingData = true
+                    this.getProductsRequest()
+                        .finally(() => {
+                            this.isFetchingData = false
+                        })
+                }
             },
 
             handleDelete (index) {
@@ -99,22 +101,28 @@
                     })
             },
 
-            handleLimit (limit) {
+            handleLimit (limit, updateList = true) {
                 this.setParams({ key: 'limit', value: limit })
-                this.isFetchingData = true
-                this.getProductsRequest()
-                    .finally(() => {
-                        this.isFetchingData = false
-                    })
+
+                if (updateList) {
+                    this.isFetchingData = true
+                    this.getProductsRequest()
+                        .finally(() => {
+                            this.isFetchingData = false
+                        })
+                }
             },
 
-            handlePagination (page) {
+            handlePagination (page, updateList = true) {
                 this.setParams({ key: 'page', value: page })
-                this.isFetchingData = true
-                this.getProductsRequest()
-                    .finally(() => {
-                        this.isFetchingData = false
-                    })
+
+                if (updateList) {
+                    this.isFetchingData = true
+                    this.getProductsRequest()
+                        .finally(() => {
+                            this.isFetchingData = false
+                        })
+                }
             }
         }
     }

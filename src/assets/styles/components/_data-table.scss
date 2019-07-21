@@ -5,6 +5,7 @@
     border: 1px solid #e6eaee;
     position: relative;
     overflow: auto;
+    overflow-y: hidden;
 
     &__loader-wrap {
         transition: all $transition-time;

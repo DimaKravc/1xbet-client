@@ -178,6 +178,13 @@
             },
 
             handleLimitAction (limit) {
+                let { current_page: currentPage, total, total_pages: totalPages } = this.pagination
+                let updatedTotalPage = Math.ceil(total / limit)
+
+                if (currentPage !== 1 && updatedTotalPage < totalPages) {
+                    this.$emit('pagination', updatedTotalPage, false)
+                }
+
                 this.$emit('limit', limit)
                 this.isShowLimitList = false
             },
