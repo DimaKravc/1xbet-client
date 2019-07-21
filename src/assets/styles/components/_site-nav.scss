@@ -1,0 +1,29 @@
+.site-nav {
+    &__list {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: rem(10px);
+    }
+
+    &__item {
+        a {
+            @include font-size(14px);
+            font-weight: $font-weight-bold;
+            text-transform: uppercase;
+            color: #000000;
+            padding: rem(15px);
+            white-space: nowrap;
+
+            &:hover {
+                color: $color-accent--active;
+            }
+
+            &.router-link-exact-active {
+                color: $color-accent--active;
+                pointer-events: none;
+            }
+        }
+    }
+}

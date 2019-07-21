@@ -1,0 +1,18 @@
+.user {
+    display: flex;
+    align-items: center;
+
+    &__avatar {
+        width: rem(50px);
+        height: rem(50px);
+        display: block;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+    }
+
+    &__name {
+        margin-left: rem(15px);
+    }
+}

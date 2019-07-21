@@ -1,0 +1,29 @@
+.site-header {
+    background: #ffffff;
+    border-bottom: 3px solid $color-accent;
+    margin-bottom: rem(35px);
+
+    &__inner {
+        padding: rem(15px) 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__col {
+        display: flex;
+        width: 33.3%;
+
+        &_align_left {
+            justify-content: flex-start;
+        }
+
+        &_align_center {
+            justify-content: center;
+        }
+
+        &_align_right {
+            justify-content: flex-end;
+        }
+    }
+}
